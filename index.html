@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Célula Manoa</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #87CEFA; 
+            color: #191970;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { padding: 20px; background: rgba(255, 255, 255, 0.2); }
+
+        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+        nav button {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #191970;
+            border: 1px solid #191970;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav button:hover { background-color: #191970; color: white; }
+
+        /* Estilo da imagem "image.png" */
+        .banner-principal {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        
+        .banner-principal img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        #conteudo { 
+            padding: 40px 20px; 
+            flex: 1; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            width: 90%;
+        }
+
+        .btn-destaque {
+            background-color: #191970;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            nav button { padding: 8px 15px; font-size: 0.8rem; }
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            font-size: 0.8rem;
+            border-top: 1px solid #191970;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <button onclick="carregarPagina('home')">Início</button>
+            <button onclick="carregarPagina('quem-somos')">Quem Somos</button>
+            <button onclick="carregarPagina('eventos')">Eventos</button>
+            <button onclick="carregarPagina('inscricao')">Inscrição</button>
+        </nav>
+    </header>
+
+    <!-- Exibindo o arquivo image.png -->
+    <div class="banner-principal">
+        <img src="image.png" alt="Sejam Bem Vindos!">
+    </div>
+
+    <main id="conteudo">
+        <h1>Célula Manoa</h1>
+        <p>Bem-vindos à nossa Célula. Conectando vidas pelo amor de Cristo.</p>
+        <button class="btn-destaque" onclick="carregarPagina('inscricao')">Quero me inscrever!</button>
+    </main>
+
+    <footer>
+        <p>Células: Sextas 20:30 | Culto: Sábados 19:00</p>
+    </footer>
+
+    <script>
+        function carregarPagina(secao) {
+            const container = document.getElementById('conteudo');
+            if (secao === 'home') {
+                container.innerHTML = '<h1>Célula Manoa</h1><p>Bem-vindos à nossa Célula.</p><button class="btn-destaque" onclick="carregarPagina(\'inscricao\')">Quero me inscrever!</button>';
+            } else if (secao === 'quem-somos') {
+                container.innerHTML = '<h1>Quem Somos</h1><p>A Célula Manoa é uma extensão da Igreja Videira Ibaraki. Nosso pastor presidente é o pastor Aluizio Silva. Estamos em Mitsukaido, Ibaraki.</p>';
+            } else if (secao === 'eventos') {
+                container.innerHTML = '<h1>Agenda de Eventos</h1><ul><li>Sextas: Células às 20:30</li><li>Sábados: Culto às 19:00</li><li>Sábados: Casais às 18:00</li></ul>';
+            } else if (secao === 'inscricao') {
+                container.innerHTML = '<h1>Inscrição</h1><form onsubmit="alert(\'Enviado!\'); return false;"><label>Nome:</label><br><input type="text" style="width:100%; margin:10px 0;" required><br><button type="submit">Enviar</button></form>';
+            }
+        }
+    </script>
+</body>
+</html>
